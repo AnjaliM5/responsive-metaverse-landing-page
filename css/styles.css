@@ -1,10 +1,54 @@
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 .container-fluid {
-  padding: 0 10% !important;
+  padding: 0 8% !important;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
+  color: white !important;
+}
+
+.nav-buttons button {
+  position: relative;
+  border-radius: 20px;
+  min-width: 110px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.nav-buttons button.login-btn {
+  background: linear-gradient(to bottom, #1e3fa0, #4cafef);
+}
+.nav-buttons button.registration-btn {
+  background: linear-gradient(to bottom, #e16400, #ff9500);
+}
+.nav-buttons button:hover {
+  transform: scale(1.05);
+}
+.nav-buttons button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  width: 85%;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.0588235294));
+  pointer-events: none;
+  border-radius: 0 0 50px 50px;
+}
+
+.contact-info {
+  font-size: 12px;
+  font-weight: 600;
+  color: orange;
+  gap: 16px;
 }
 
 /*# sourceMappingURL=styles.css.map */
