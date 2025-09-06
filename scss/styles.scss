@@ -1,54 +1,183 @@
-@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
-.container-fluid {
-    padding: 0 8% !important;
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    color: white !important;
-}
-
-.nav-buttons {
-    button {
-        position: relative;
-        border-radius: 20px;
-        min-width: 110px;
-        border: none;
-        padding: 6px 12px;
-        font-size: 12px;
-        font-weight: 600;
-        color: white;
-        cursor: pointer;
-        overflow: hidden;
-        transition: all 0.3s ease-in-out;
-        &.login-btn {
-            background: linear-gradient(to bottom, #1e3fa0, #4cafef);
+    @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+    .container-fluid {
+        padding: 0 8% !important;
+    }
+    
+    .text-gradient {
+        background: linear-gradient(90deg, #f0b93e, #d158c9, #7a4af0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .navbar {
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: white !important;
         }
-        &.registration-btn {
-            background: linear-gradient(to bottom, #e16400, #ff9500);
+        .nav-buttons {
+            button {
+                position: relative;
+                border-radius: 20px;
+                min-width: 110px;
+                border: none;
+                padding: 6px 12px;
+                font-size: 12px;
+                font-weight: 600;
+                color: white;
+                cursor: pointer;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
+                &.login-btn {
+                    background: linear-gradient(to bottom, #1e3fa0, #4cafef);
+                }
+                &.registration-btn {
+                    background: linear-gradient(to bottom, #e16400, #ff9500);
+                }
+                &:hover {
+                    transform: scale(1.05);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 8px;
+                    width: 85%;
+                    height: 25%;
+                    background: #ffffff66;
+                    background: linear-gradient(to bottom, #ffffff66, #ffffff0f);
+                    pointer-events: none;
+                    border-radius: 0 0 50px 50px;
+                }
+            }
         }
-        &:hover {
-            transform: scale(1.05);
-        }
-        &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 8px;
-            width: 85%;
-            height: 25%;
-            background: #ffffff66;
-            background: linear-gradient(to bottom, #ffffff66, #ffffff0f);
-            pointer-events: none;
-            border-radius: 0 0 50px 50px;
+        .contact-info {
+            font-size: 12px;
+            font-weight: 600;
+            color: orange;
+            gap: 16px;
         }
     }
-}
-
-.contact-info {
-    font-size: 12px;
-    font-weight: 600;
-    color: orange;
-    gap: 16px;
-}
+    
+    .hero-section {
+        background-image: url("../assets/stary-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 75px;
+        .main-heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h4 {
+                font-size: 20px;
+            }
+            .large-text {
+                font-size: 48px;
+                font-weight: 700;
+                display: flex;
+                align-items: baseline;
+            }
+            &.animate-slide-in {
+                animation: slideInFromLeft 1s ease-out forwards;
+                @keyframes slideInFromLeft {
+                    0% {
+                        opacity: 0;
+                        transform: translateX(-100px);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            }
+        }
+        .floating-cards-container {
+            .card {
+                max-width: 180px;
+                border-radius: 8px;
+                background: linear-gradient(135deg, #4900f4, #f0a03e);
+                .card-body {
+                    padding: 6px 0px;
+                    span {
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                    .icon {
+                        width: 45px;
+                        height: 45px;
+                        background: rgb(255, 7, 189);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 3px solid rgba(255, 255, 255, 0.337);
+                        .bi {
+                            color: #ffffff;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+            .top-row,
+            .middle-row,
+            .lower-row {
+                justify-content: space-between;
+                position: absolute;
+                opacity: 1;
+                transform: translateY(20px);
+                animation-fill-mode: forwards;
+            }
+            .top-row {
+                width: 1000px;
+                bottom: 260px;
+            }
+            .middle-row {
+                width: 800px;
+                bottom: 140px;
+            }
+            .lower-row {
+                width: 670px;
+                bottom: 20px;
+            }
+            &.fadeOut {
+                .top-row {
+                    animation: fadeOut 0.6s ease forwards;
+                    animation-delay: 1s;
+                }
+                .middle-row {
+                    animation: fadeOut 0.6s ease forwards;
+                    animation-delay: 1.75s;
+                }
+                .lower-row {
+                    animation: fadeOut 0.6s ease forwards;
+                    animation-delay: 2.4s;
+                }
+            }
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+    
+    .features {
+        background-color: #212027;
+        color: white;
+        .col {
+            transition: transform 0.4s ease;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        .bi {
+            background: linear-gradient( 176deg, #00ffc1, #2200ff);
+            -webkit-text-fill-color: transparent;
+            -webkit-backdrop-clip: text;
+            background-clip: text;
+        }
+        span {
+            font-weight: 700;
+        }
+    }

@@ -3,13 +3,18 @@
   padding: 0 8% !important;
 }
 
-.navbar-brand {
+.text-gradient {
+  background: linear-gradient(90deg, #f0b93e, #d158c9, #7a4af0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar .navbar-brand {
   display: flex;
   align-items: center;
   color: white !important;
 }
-
-.nav-buttons button {
+.navbar .nav-buttons button {
   position: relative;
   border-radius: 20px;
   min-width: 110px;
@@ -22,16 +27,16 @@
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
-.nav-buttons button.login-btn {
+.navbar .nav-buttons button.login-btn {
   background: linear-gradient(to bottom, #1e3fa0, #4cafef);
 }
-.nav-buttons button.registration-btn {
+.navbar .nav-buttons button.registration-btn {
   background: linear-gradient(to bottom, #e16400, #ff9500);
 }
-.nav-buttons button:hover {
+.navbar .nav-buttons button:hover {
   transform: scale(1.05);
 }
-.nav-buttons button::after {
+.navbar .nav-buttons button::after {
   content: "";
   position: absolute;
   top: 0;
@@ -43,12 +48,130 @@
   pointer-events: none;
   border-radius: 0 0 50px 50px;
 }
-
-.contact-info {
+.navbar .contact-info {
   font-size: 12px;
   font-weight: 600;
   color: orange;
   gap: 16px;
+}
+
+.hero-section {
+  background-image: url("../assets/stary-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 75px;
+}
+.hero-section .main-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-section .main-heading h4 {
+  font-size: 20px;
+}
+.hero-section .main-heading .large-text {
+  font-size: 48px;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+}
+.hero-section .main-heading.animate-slide-in {
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.hero-section .floating-cards-container .card {
+  max-width: 180px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4900f4, #f0a03e);
+}
+.hero-section .floating-cards-container .card .card-body {
+  padding: 6px 0px;
+}
+.hero-section .floating-cards-container .card .card-body span {
+  font-size: 12px;
+  font-weight: 600;
+}
+.hero-section .floating-cards-container .card .card-body .icon {
+  width: 45px;
+  height: 45px;
+  background: rgb(255, 7, 189);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.337);
+}
+.hero-section .floating-cards-container .card .card-body .icon .bi {
+  color: #ffffff;
+  font-size: 16px;
+}
+.hero-section .floating-cards-container .top-row,
+.hero-section .floating-cards-container .middle-row,
+.hero-section .floating-cards-container .lower-row {
+  justify-content: space-between;
+  position: absolute;
+  opacity: 1;
+  transform: translateY(20px);
+  animation-fill-mode: forwards;
+}
+.hero-section .floating-cards-container .top-row {
+  width: 1000px;
+  bottom: 260px;
+}
+.hero-section .floating-cards-container .middle-row {
+  width: 800px;
+  bottom: 140px;
+}
+.hero-section .floating-cards-container .lower-row {
+  width: 670px;
+  bottom: 20px;
+}
+.hero-section .floating-cards-container.fadeOut .top-row {
+  animation: fadeOut 0.6s ease forwards;
+  animation-delay: 1s;
+}
+.hero-section .floating-cards-container.fadeOut .middle-row {
+  animation: fadeOut 0.6s ease forwards;
+  animation-delay: 1.75s;
+}
+.hero-section .floating-cards-container.fadeOut .lower-row {
+  animation: fadeOut 0.6s ease forwards;
+  animation-delay: 2.4s;
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+.features {
+  background-color: #212027;
+  color: white;
+}
+.features .col {
+  transition: transform 0.4s ease;
+}
+.features .col:hover {
+  transform: scale(1.1);
+}
+.features .bi {
+  background: linear-gradient(176deg, #00ffc1, #2200ff);
+  -webkit-text-fill-color: transparent;
+  -webkit-backdrop-clip: text;
+  background-clip: text;
+}
+.features span {
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=styles.css.map */
