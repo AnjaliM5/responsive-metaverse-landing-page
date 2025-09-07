@@ -3,6 +3,7 @@
   background: linear-gradient(90deg, #f0b93e, #d158c9, #7a4af0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
 }
 
 .custom-buttons button {
@@ -44,6 +45,11 @@
   padding: 0 8% !important;
 }
 
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
 .navbar .navbar-brand {
   display: flex;
   align-items: center;
@@ -212,6 +218,8 @@
   background: url("/assets/aboutUs-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 1;
+  position: relative;
 }
 .about-us .content {
   width: 75%;
@@ -274,6 +282,106 @@
   }
   .about-us .row .content {
     width: 100%;
+  }
+}
+
+.investment-plans {
+  background: url("/assets/investment-plans-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0;
+  position: relative;
+  height: 500px;
+  z-index: -1;
+}
+.investment-plans .spiral-container {
+  position: relative;
+  background-color: rgba(82, 81, 97, 0.164);
+  color: white;
+}
+.investment-plans .spiral-container .dotted-circles {
+  position: absolute;
+  top: 62px;
+  left: 30.5%;
+  pointer-events: none;
+}
+.investment-plans .spiral-container .center-circle {
+  position: absolute;
+  left: 50%;
+  top: 350px;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  background: rgba(137, 140, 178, 0.3411764706);
+  color: white;
+  padding: 20px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.investment-plans .spiral-container .orbit1,
+.investment-plans .spiral-container .orbit2,
+.investment-plans .spiral-container .orbit3 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 62px;
+  left: 30.5%;
+}
+.investment-plans .spiral-container .orbit1 .orbiting-ball,
+.investment-plans .spiral-container .orbit2 .orbiting-ball,
+.investment-plans .spiral-container .orbit3 .orbiting-ball {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(300deg, #e57e00, #7a4af0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+.investment-plans .spiral-container .orbit1 .orbiting-ball.delayed,
+.investment-plans .spiral-container .orbit2 .orbiting-ball.delayed,
+.investment-plans .spiral-container .orbit3 .orbiting-ball.delayed {
+  animation-delay: 7s;
+}
+.investment-plans .spiral-container .orbit1 .orbiting-ball {
+  animation: orbit1 10s linear infinite;
+}
+.investment-plans .spiral-container .orbit2 .orbiting-ball {
+  animation: orbit2 14s linear infinite;
+}
+.investment-plans .spiral-container .orbit3 .orbiting-ball {
+  animation: orbit3 18s linear infinite;
+}
+@keyframes orbit1 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-160px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateY(-160px) rotate(-360deg);
+  }
+}
+@keyframes orbit2 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-220px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateY(-220px) rotate(-360deg);
+  }
+}
+@keyframes orbit3 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-280px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateY(-280px) rotate(-360deg);
   }
 }
 

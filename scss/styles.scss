@@ -4,6 +4,7 @@
     background: linear-gradient(90deg, #f0b93e, #d158c9, #7a4af0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
 }
 
 .custom-buttons {
@@ -48,6 +49,9 @@
 }
 
 .navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
     .navbar-brand {
         display: flex;
         align-items: center;
@@ -221,6 +225,8 @@
     background: url("/assets/aboutUs-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1;
+    position: relative;
     .content {
         width: 75%;
         color: white;
@@ -281,6 +287,102 @@
             }
             .content {
                 width: 100%;
+            }
+        }
+    }
+}
+
+.investment-plans {
+    background: url("/assets/investment-plans-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px 0;
+    position: relative;
+    height: 500px;
+    z-index: -1;
+    .spiral-container {
+        position: relative;
+        background-color: rgba(82, 81, 97, 0.164);
+        color: white;
+        .dotted-circles {
+            position: absolute;
+            top: 62px;
+            left: 30.5%;
+            pointer-events: none;
+        }
+        .center-circle {
+            position: absolute;
+            left: 50%;
+            top: 350px;
+            width: 200px;
+            height: 200px;
+            transform: translate(-50%, -50%);
+            background: #898cb257;
+            color: white;
+            padding: 20px;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+        .orbit1,
+        .orbit2,
+        .orbit3 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 62px;
+            left: 30.5%;
+            .orbiting-ball {
+                position: absolute;
+                width: 55px;
+                height: 55px;
+                background: linear-gradient(300deg, #e57e00, #7a4af0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                &.delayed {
+                    animation-delay: 7s;
+                }
+            }
+        }
+        .orbit1 .orbiting-ball {
+            animation: orbit1 10s linear infinite;
+        }
+        .orbit2 .orbiting-ball {
+            animation: orbit2 14s linear infinite;
+        }
+        .orbit3 .orbiting-ball {
+            animation: orbit3 18s linear infinite;
+        }
+        @keyframes orbit1 {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) translateY(-160px) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg) translateY(-160px) rotate(-360deg);
+            }
+        }
+        @keyframes orbit2 {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) translateY(-220px) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg) translateY(-220px) rotate(-360deg);
+            }
+        }
+        @keyframes orbit3 {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) translateY(-280px) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg) translateY(-280px) rotate(-360deg);
             }
         }
     }
