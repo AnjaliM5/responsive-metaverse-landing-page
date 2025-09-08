@@ -599,6 +599,7 @@
                     }
                     .fw-bold {
                         font-size: 2.2vw;
+                        list-style: 20px;
                     }
                 }
                 .orbit1,
@@ -698,5 +699,17 @@
                         height: 10vw;
                     }
                 }
+            }
+        }
+        
+        @media (max-width: 1280px) {
+            .center-circle {
+                top: 270% !important;
+            }
+        }
+        
+        @media (max-width: 1366px) {
+            .center-circle {
+                top: 250% !important;
             }
         }
