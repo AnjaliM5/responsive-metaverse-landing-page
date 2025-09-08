@@ -1,72 +1,138 @@
-        @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
-        // common scss styles
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+// common scss styles
+.text-gradient {
+    background: linear-gradient(90deg, #f0b93e, #d158c9, #7a4af0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.custom-buttons {
+    button {
+        position: relative;
+        border-radius: 20px;
+        min-width: 110px;
+        border: none;
+        padding: 6px 12px;
+        font-size: 12px;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        &.blue-btn {
+            background: linear-gradient(to bottom, #1e3fa0, #4cafef);
+        }
+        &.orange-btn {
+            background: linear-gradient(to bottom, #e16400, #ff9500);
+        }
+        &:hover {
+            transform: scale(1.05);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 8px;
+            width: 85%;
+            height: 25%;
+            background: #ffffff66;
+            background: linear-gradient(to bottom, #ffffff66, #ffffff0f);
+            pointer-events: none;
+            border-radius: 0 0 50px 50px;
+        }
+    }
+}
+
+.container-fluid {
+    padding: 15px 75px !important;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    .title {
+        text-align: right;
         .text-gradient {
-            background: linear-gradient(90deg, #f0b93e, #d158c9, #7a4af0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
+            line-height: 20px;
         }
-        
-        .custom-buttons {
-            button {
-                position: relative;
-                border-radius: 20px;
-                min-width: 110px;
-                border: none;
-                padding: 6px 12px;
-                font-size: 12px;
-                font-weight: 600;
-                color: white;
-                cursor: pointer;
-                overflow: hidden;
-                transition: all 0.3s ease-in-out;
-                &.blue-btn {
-                    background: linear-gradient(to bottom, #1e3fa0, #4cafef);
-                }
-                &.orange-btn {
-                    background: linear-gradient(to bottom, #e16400, #ff9500);
-                }
-                &:hover {
-                    transform: scale(1.05);
-                }
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 8px;
-                    width: 85%;
-                    height: 25%;
-                    background: #ffffff66;
-                    background: linear-gradient(to bottom, #ffffff66, #ffffff0f);
-                    pointer-events: none;
-                    border-radius: 0 0 50px 50px;
-                }
-            }
+    }
+    .large-text {
+        font-size: 48px;
+        font-weight: 700;
+        text-transform: uppercase;
+        height: 62px;
+        color: white;
+    }
+    &.slide-in {
+        animation: slideInFromLeft 1s ease-out forwards;
+    }
+    @keyframes slideInFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100px);
         }
-        
-        .container-fluid {
-            padding: 15px 75px !important;
+        100% {
+            opacity: 1;
+            transform: translateX(0);
         }
-        
-        .section-title {
+    }
+}
+
+// navbar section styles
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+    .scroll-nav-animate {
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        color: white;
+        span {
+            color: white;
+        }
+        .navbar-brand {
             display: flex;
             align-items: center;
-            .title {
-                text-align: right;
-                .text-gradient {
-                    line-height: 20px;
-                }
-            }
-            .large-text {
-                font-size: 48px;
-                font-weight: 700;
-                text-transform: uppercase;
-                height: 62px;
+        }
+        .contact-info {
+            font-size: 12px;
+            font-weight: 600;
+            color: orange;
+            width: 400px;
+            .bi,
+            span {
                 color: white;
             }
-            &.slide-in {
-                animation: slideInFromLeft 1s ease-out forwards;
-            }
+        }
+        &.scrolled-bottom {
+            background-color: rgb(5, 11, 66) !important;
+        }
+    }
+}
+
+// hero section styles
+.hero-section {
+    background-image: url("../assets/stary-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 75px;
+    .main-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h4 {
+            font-size: 20px;
+        }
+        .large-text {
+            font-size: 48px;
+            font-weight: 700;
+            display: flex;
+            align-items: baseline;
+        }
+        &.animate-slide-in {
+            animation: slideInFromLeft 1s ease-out forwards;
             @keyframes slideInFromLeft {
                 0% {
                     opacity: 0;
@@ -78,638 +144,458 @@
                 }
             }
         }
-        
-        .navbar {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1001;
-            .scroll-nav-animate {
-                background-color: transparent;
-                transition: background-color 0.3s ease;
-                color: white;
+    }
+    .floating-cards-container {
+        .card {
+            border: none;
+            max-width: 180px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #4900f4, #f0a03e);
+            .card-body {
+                padding: 6px 0px;
                 span {
-                    color: white;
-                }
-                .navbar-brand {
-                    display: flex;
-                    align-items: center;
-                }
-                .contact-info {
                     font-size: 12px;
                     font-weight: 600;
-                    color: orange;
-                    width: 400px;
-                    .bi,
-                    span {
-                        color: white;
-                    }
                 }
-                &.scrolled-bottom {
-                    background-color: rgb(5, 11, 66) !important;
-                }
-            }
-        }
-        
-        .hero-section {
-            background-image: url("../assets/stary-bg.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding-top: 75px;
-            .main-heading {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                h4 {
-                    font-size: 20px;
-                }
-                .large-text {
-                    font-size: 48px;
-                    font-weight: 700;
+                .icon {
+                    width: 45px;
+                    height: 45px;
+                    background: rgb(255, 7, 189);
+                    border-radius: 50%;
                     display: flex;
-                    align-items: baseline;
-                }
-                &.animate-slide-in {
-                    animation: slideInFromLeft 1s ease-out forwards;
-                    @keyframes slideInFromLeft {
-                        0% {
-                            opacity: 0;
-                            transform: translateX(-100px);
-                        }
-                        100% {
-                            opacity: 1;
-                            transform: translateX(0);
-                        }
-                    }
-                }
-            }
-            .floating-cards-container {
-                .card {
-                    border: none;
-                    max-width: 180px;
-                    border-radius: 8px;
-                    background: linear-gradient(135deg, #4900f4, #f0a03e);
-                    .card-body {
-                        padding: 6px 0px;
-                        span {
-                            font-size: 12px;
-                            font-weight: 600;
-                        }
-                        .icon {
-                            width: 45px;
-                            height: 45px;
-                            background: rgb(255, 7, 189);
-                            border-radius: 50%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            border: 3px solid rgba(255, 255, 255, 0.337);
-                            .bi {
-                                color: #ffffff;
-                                font-size: 16px;
-                            }
-                        }
-                    }
-                }
-                .top-row,
-                .middle-row,
-                .lower-row {
-                    justify-content: space-between;
-                    position: absolute;
-                    opacity: 1;
-                    transform: translateY(20px);
-                    animation-fill-mode: forwards;
-                }
-                .top-row {
-                    width: 1000px;
-                    bottom: 260px;
-                }
-                .middle-row {
-                    width: 800px;
-                    bottom: 140px;
-                }
-                .lower-row {
-                    width: 670px;
-                    bottom: 40px;
-                }
-                &.fadeOut {
-                    .top-row {
-                        animation: fadeOut 0.6s ease forwards;
-                        animation-delay: 1s;
-                    }
-                    .middle-row {
-                        animation: fadeOut 0.6s ease forwards;
-                        animation-delay: 1.75s;
-                    }
-                    .lower-row {
-                        animation: fadeOut 0.6s ease forwards;
-                        animation-delay: 2.4s;
-                    }
-                }
-                @keyframes fadeOut {
-                    to {
-                        opacity: 0;
-                        transform: translateY(0);
-                    }
-                }
-            }
-        }
-        
-        .features {
-            background-color: #212027;
-            color: white;
-            .col-6 {
-                transition: transform 0.4s ease;
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
-            .bi {
-                background: linear-gradient(176deg, #00ffc1, #2200ff);
-                -webkit-text-fill-color: transparent;
-                -webkit-backdrop-clip: text;
-                background-clip: text;
-            }
-            span {
-                font-weight: 700;
-            }
-        }
-        
-        // .investment-plans {
-        //     background: url("/assets/investment-plans-bg.jpg");
-        //     background-repeat: no-repeat;
-        //     background-size: cover;
-        //     padding: 50px 0;
-        //     position: relative;
-        //     min-height: 500px;
-        //     z-index: -1;
-        //     .spiral-container {
-        //         position: relative;
-        //         color: white;
-        //         width: 100%;
-        //         height: 100%;
-        //         display: flex;
-        //         justify-content: center;
-        //         align-items: center;
-        //         padding: 40px 0;
-        //         .dotted-circles {
-        //             position: absolute;
-        //             top: 58px;
-        //             left: 50%;
-        //             transform: translateX(-50%);
-        //             width: 80vw;
-        //             max-width: 600px;
-        //             height: 80vw;
-        //             max-height: 600px;
-        //             pointer-events: none;
-        //         }
-        //         .center-circle {
-        //             position: absolute;
-        //             left: 50%;
-        //             top: 37vw;
-        //             width: 200px;
-        //             height: 200px;
-        //             transform: translate(-50%, -50%);
-        //             background: #898cb257;
-        //             color: white;
-        //             padding: 20px;
-        //             border-radius: 50%;
-        //             text-align: center;
-        //             font-weight: bold;
-        //             display: flex;
-        //             justify-content: center;
-        //             align-items: baseline;
-        //         }
-        //         .orbit1,
-        //         .orbit2,
-        //         .orbit3 {
-        //             position: absolute;
-        //             width: 60vw;
-        //             // max-width: 600px;
-        //             height: 80vw;
-        //             max-height: 600px;
-        //             top: 8vw;
-        //             left: 50%;
-        //             transform: translateX(-50%);
-        //             .orbiting-ball {
-        //                 position: absolute;
-        //                 width: 6vw;
-        //                 height: 6vw;
-        //                 background: linear-gradient(300deg, #e57e00, #7a4af0);
-        //                 display: flex;
-        //                 flex-direction: column;
-        //                 align-items: center;
-        //                 justify-content: center;
-        //                 color: white;
-        //                 border-radius: 50%;
-        //                 top: 50%;
-        //                 left: 50%;
-        //                 &.delayed {
-        //                     animation-delay: 7s;
-        //                 }
-        //                 span {
-        //                     font-size: 10px;
-        //                     font-weight: 500;
-        //                 }
-        //                 h5 {
-        //                     line-height: 15px;
-        //                 }
-        //                 .plan {
-        //                     text-transform: uppercase;
-        //                 }
-        //             }
-        //         }
-        //         .orbit1 .orbiting-ball {
-        //             animation: orbit1 10s linear infinite;
-        //         }
-        //         .orbit2 .orbiting-ball {
-        //             animation: orbit2 14s linear infinite;
-        //         }
-        //         .orbit3 .orbiting-ball {
-        //             animation: orbit3 18s linear infinite;
-        //         }
-        //         @keyframes orbit1 {
-        //             from {
-        //                 transform: translate(-50%, -50%) rotate(0deg) translateY(-160px) rotate(0deg);
-        //             }
-        //             to {
-        //                 transform: translate(-50%, -50%) rotate(360deg) translateY(-160px) rotate(-360deg);
-        //             }
-        //         }
-        //         @keyframes orbit2 {
-        //             from {
-        //                 transform: translate(-50%, -50%) rotate(0deg) translateY(-220px) rotate(0deg);
-        //             }
-        //             to {
-        //                 transform: translate(-50%, -50%) rotate(360deg) translateY(-220px) rotate(-360deg);
-        //             }
-        //         }
-        //         @keyframes orbit3 {
-        //             from {
-        //                 transform: translate(-50%, -50%) rotate(0deg) translateY(-280px) rotate(0deg);
-        //             }
-        //             to {
-        //                 transform: translate(-50%, -50%) rotate(360deg) translateY(-280px) rotate(-360deg);
-        //             }
-        //         }
-        //     }
-        // }
-        .about-us {
-            padding: 50px 0;
-            background: url("/assets/aboutUs-bg.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: 1;
-            position: relative;
-            .content {
-                width: 75%;
-                color: white;
-                font-size: 13px;
-                line-height: 22px;
-                margin-top: 20px;
-                text-align: justify;
-            }
-            .embassy-logo {
-                border-radius: 50%;
-                border: 6px solid rgba(255, 255, 255, 0.262);
-                margin-bottom: 20px;
-            }
-            .cta-button {
-                position: absolute;
-                bottom: 60px;
-                color: white;
-                width: 260px;
-                right: 59px;
-                transition: transform 1s ease;
-                animation: float 4s ease-in-out infinite;
-                .card {
-                    padding: 12px 28px;
-                    border-radius: 16px;
-                    background: linear-gradient(300deg, #f0853e, #d158c9, #511ed0);
-                    cursor: pointer;
-                    border: none;
-                }
-                &:hover {
-                    transform: scale(1.5);
-                }
-                @keyframes float {
-                    0% {
-                        transform: translateY(0);
-                    }
-                    50% {
-                        transform: translateY(-15px);
-                    }
-                    100% {
-                        transform: translateY(0);
-                    }
-                }
-            }
-        }
-        
-        //screen floating elements styles
-        .marble {
-            position: fixed;
-            bottom: -50px;
-            pointer-events: none;
-            z-index: 1000;
-            animation-name: floatUp;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-        
-        .geometry {
-            position: fixed;
-            bottom: -50px;
-            pointer-events: none;
-            z-index: 1000;
-            animation-name: floatUp;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-        
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-120vh);
-                opacity: 0.8;
-            }
-        }
-        
-        @media (max-width: 597px) {
-            .navbar {
-                .scroll-nav-animate {
+                    align-items: center;
                     justify-content: center;
-                    .contact-info {
-                        text-align: center;
-                    }
-                }
-            }
-            .hero-section {
-                padding-top: 148px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .about-us {
-                .row {
-                    flex-direction: column-reverse;
-                    text-align: center;
-                    .image-container {
-                        text-align: center !important;
-                        margin-top: 40px;
-                    }
-                    .section-title {
-                        justify-content: center;
-                    }
-                    .cta-button {
-                        bottom: -55px;
-                        right: 119px;
-                    }
-                    .content {
-                        width: 100%;
-                    }
-                }
-            }
-            .investment-plans {
-                padding: 30px 0;
-                .spiral-container {
-                    padding: 20px 0;
-                    .dotted-circles {
-                        width: 90vw;
-                        height: 90vw;
-                        top: 40px;
-                    }
-                    .center-circle {
-                        width: 150px;
-                        height: 150px;
-                        top: 250px;
-                        padding: 15px;
-                        font-size: 0.9rem;
-                    }
-                    .orbit1,
-                    .orbit2,
-                    .orbit3 {
-                        width: 90vw;
-                        height: 90vw;
-                        top: 30px;
-                        .orbiting-ball {
-                            width: 45px;
-                            height: 45px;
-                            span {
-                                font-size: 9px;
-                            }
-                            h5 {
-                                font-size: 12px;
-                                line-height: 12px;
-                            }
-                        }
-                    }
-                    /* Optional: reduce orbit radii in keyframes for smaller screens */
-                    @keyframes orbit1 {
-                        from {
-                            transform: rotate(0deg);
-                        }
-                        to {
-                            transform: rotate(360deg);
-                        }
-                    }
-                    @keyframes orbit2 {
-                        from {
-                            transform: rotate(0deg);
-                        }
-                        to {
-                            transform: rotate(360deg);
-                        }
-                    }
-                    @keyframes orbit3 {
-                        from {
-                            transform: rotate(0deg);
-                        }
-                        to {
-                            transform: rotate(360deg);
-                        }
+                    border: 3px solid rgba(255, 255, 255, 0.337);
+                    .bi {
+                        color: #ffffff;
+                        font-size: 16px;
                     }
                 }
             }
         }
-        
-        @media (max-width: 800px) {
-            .orbit1,
-            .orbit2,
-            .orbit3 {
-                top: 10vw;
-                width: 90vw;
-                height: 90vw;
+        .top-row,
+        .middle-row,
+        .lower-row {
+            justify-content: space-between;
+            position: absolute;
+            opacity: 1;
+            transform: translateY(20px);
+            animation-fill-mode: forwards;
+        }
+        .top-row {
+            width: 1000px;
+            bottom: 260px;
+        }
+        .middle-row {
+            width: 800px;
+            bottom: 140px;
+        }
+        .lower-row {
+            width: 670px;
+            bottom: 40px;
+        }
+        &.fadeOut {
+            .top-row {
+                animation: fadeOut 0.6s ease forwards;
+                animation-delay: 1s;
             }
-            .center-circle {
-                width: 30vw;
-                height: 30vw;
+            .middle-row {
+                animation: fadeOut 0.6s ease forwards;
+                animation-delay: 1.75s;
+            }
+            .lower-row {
+                animation: fadeOut 0.6s ease forwards;
+                animation-delay: 2.4s;
             }
         }
-        
-        .investment-plans {
-            background: url("/assets/investment-plans-bg.jpg") no-repeat center/cover;
-            padding: 50px 0;
-            position: relative;
-            min-height: 500px;
-            z-index: -1;
-            .spiral-container {
-                position: relative;
-                width: 100%;
-                height: 100%;
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+// feature section styles 
+.features {
+    background-color: #212027;
+    color: white;
+    .col-6 {
+        transition: transform 0.4s ease;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    .bi {
+        background: linear-gradient(176deg, #00ffc1, #2200ff);
+        -webkit-text-fill-color: transparent;
+        -webkit-backdrop-clip: text;
+        background-clip: text;
+    }
+    span {
+        font-weight: 700;
+    }
+}
+
+//investment plans section styles
+.investment-plans {
+    background: url("/assets/investment-plans-bg.jpg") no-repeat center/cover;
+    padding: 50px 0;
+    position: relative;
+    min-height: 500px;
+    z-index: -1;
+    .spiral-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5vw 0;
+        .dotted-circles {
+            // background-color: rgb(167, 85, 85);
+            position: absolute;
+            top: 3vw;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 79vw;
+            height: 42vw;
+            max-width: 700px;
+            max-height: 700px;
+            pointer-events: none;
+            padding-top: 10px;
+        }
+        .center-circle {
+            position: absolute;
+            left: 50%;
+            top: 234%;
+            width: 12vw;
+            height: 12vw;
+            max-width: 300px;
+            max-height: 300px;
+            transform: translate(-50%, -50%);
+            background: rgba(137, 140, 178, 0.34);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            text-align: center;
+            padding: 16px;
+            p small {
+                display: block;
+            }
+            .fw-bold {
+                font-size: 2.2vw;
+                list-style: 20px;
+            }
+        }
+        .orbit1,
+        .orbit2,
+        .orbit3 {
+            position: absolute;
+            width: 90vw;
+            height: 90vw;
+            max-width: 700px;
+            max-height: 600px;
+            top: 4vw;
+            left: 50%;
+            transform: translateX(-50%);
+            .orbiting-ball {
+                position: absolute;
+                width: 8vw;
+                height: 8vw;
+                max-width: 55px;
+                max-height: 55px;
+                background: linear-gradient(300deg, #e57e00, #7a4af0);
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 5vw 0;
-                .dotted-circles {
-                    // background-color: rgb(167, 85, 85);
-                    position: absolute;
-                    top: 3vw;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 79vw;
-                    height: 42vw;
-                    max-width: 700px;
-                    max-height: 700px;
-                    pointer-events: none;
-                    padding-top: 10px;
+                flex-direction: column;
+                color: white;
+                &.delayed {
+                    animation-delay: 7s;
                 }
-                .center-circle {
-                    position: absolute;
-                    left: 50%;
-                    top: 234%;
-                    width: 12vw;
-                    height: 12vw;
-                    max-width: 300px;
-                    max-height: 300px;
-                    transform: translate(-50%, -50%);
-                    background: rgba(137, 140, 178, 0.34);
-                    color: white;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: start;
-                    text-align: center;
-                    padding: 16px;
-                    p small {
-                        display: block;
-                    }
-                    .fw-bold {
-                        font-size: 2.2vw;
-                        list-style: 20px;
-                    }
+                span {
+                    font-size: 0.8vw;
                 }
-                .orbit1,
-                .orbit2,
-                .orbit3 {
-                    position: absolute;
-                    width: 90vw;
-                    height: 90vw;
-                    max-width: 700px;
-                    max-height: 600px;
-                    top: 4vw;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    .orbiting-ball {
-                        position: absolute;
-                        width: 8vw;
-                        height: 8vw;
-                        max-width: 55px;
-                        max-height: 55px;
-                        background: linear-gradient(300deg, #e57e00, #7a4af0);
-                        border-radius: 50%;
-                        top: 50%;
-                        left: 50%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: column;
-                        color: white;
-                        &.delayed {
-                            animation-delay: 7s;
-                        }
-                        span {
-                            font-size: 0.8vw;
-                        }
-                        h5 {
-                            line-height: 1vw;
-                        }
-                        .plan {
-                            text-transform: uppercase;
-                            font-size: 0.7vw;
-                        }
-                    }
+                h5 {
+                    line-height: 1vw;
                 }
-                .orbit1 .orbiting-ball {
-                    animation: orbit1 10s linear infinite;
-                }
-                .orbit2 .orbiting-ball {
-                    animation: orbit2 14s linear infinite;
-                }
-                .orbit3 .orbiting-ball {
-                    animation: orbit3 18s linear infinite;
-                }
-                // Responsive keyframes using percentages
-                @keyframes orbit1 {
-                    from {
-                        transform: translate(-50%, -50%) rotate(0deg) translateY(-270%) rotate(0deg);
-                    }
-                    to {
-                        transform: translate(-50%, -50%) rotate(360deg) translateY(-270%) rotate(-360deg);
-                    }
-                }
-                @keyframes orbit2 {
-                    from {
-                        transform: translate(-50%, -50%) rotate(0deg) translateY(-400%) rotate(0deg);
-                    }
-                    to {
-                        transform: translate(-50%, -50%) rotate(360deg) translateY(-400%) rotate(-360deg);
-                    }
-                }
-                @keyframes orbit3 {
-                    from {
-                        transform: translate(-50%, -50%) rotate(0deg) translateY(-540%) rotate(0deg);
-                    }
-                    to {
-                        transform: translate(-50%, -50%) rotate(360deg) translateY(-540%) rotate(-360deg);
-                    }
+                .plan {
+                    text-transform: uppercase;
+                    font-size: 0.7vw;
                 }
             }
         }
-        
-        // Media query for very small screens
-        @media (max-width: 500px) {
-            .spiral-container {
-                padding: 8vw 0;
-                .center-circle {
-                    width: 30vw;
-                    height: 30vw;
-                }
-                .orbit1,
-                .orbit2,
-                .orbit3 {
-                    width: 90vw;
-                    height: 90vw;
-                    top: 10vw;
-                    .orbiting-ball {
-                        width: 10vw;
-                        height: 10vw;
-                    }
-                }
+        .orbit1 .orbiting-ball {
+            animation: orbit1 10s linear infinite;
+        }
+        .orbit2 .orbiting-ball {
+            animation: orbit2 14s linear infinite;
+        }
+        .orbit3 .orbiting-ball {
+            animation: orbit3 18s linear infinite;
+        }
+        // Responsive keyframes using percentages
+        @keyframes orbit1 {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) translateY(-270%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg) translateY(-270%) rotate(-360deg);
             }
         }
-        
-        @media (max-width: 1280px) {
+        @keyframes orbit2 {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) translateY(-400%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg) translateY(-400%) rotate(-360deg);
+            }
+        }
+        @keyframes orbit3 {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) translateY(-540%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg) translateY(-540%) rotate(-360deg);
+            }
+        }
+    }
+}
+
+//about us section styles
+.about-us {
+    padding: 50px 0;
+    background: url("/assets/aboutUs-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    position: relative;
+    .content {
+        width: 75%;
+        color: white;
+        font-size: 13px;
+        line-height: 22px;
+        margin-top: 20px;
+        text-align: justify;
+    }
+    .embassy-logo {
+        border-radius: 50%;
+        border: 6px solid rgba(255, 255, 255, 0.262);
+        margin-bottom: 20px;
+    }
+    .cta-button {
+        position: absolute;
+        bottom: 60px;
+        color: white;
+        width: 260px;
+        right: 59px;
+        transition: transform 1s ease;
+        animation: float 4s ease-in-out infinite;
+        .card {
+            padding: 12px 28px;
+            border-radius: 16px;
+            background: linear-gradient(300deg, #f0853e, #d158c9, #511ed0);
+            cursor: pointer;
+            border: none;
+        }
+        &:hover {
+            transform: scale(1.5);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+//screen floating elements styles
+.marble {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    z-index: 1000;
+    animation-name: floatUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.geometry {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    z-index: 1000;
+    animation-name: floatUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0.8;
+    }
+}
+
+// Media Queries
+@media (max-width: 597px) {
+    .navbar {
+        .scroll-nav-animate {
+            justify-content: center;
+            .contact-info {
+                text-align: center;
+            }
+        }
+    }
+    .hero-section {
+        padding-top: 148px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us {
+        .row {
+            flex-direction: column-reverse;
+            text-align: center;
+            .image-container {
+                text-align: center !important;
+                margin-top: 40px;
+            }
+            .section-title {
+                justify-content: center;
+            }
+            .cta-button {
+                bottom: -55px;
+                right: 119px;
+            }
+            .content {
+                width: 100%;
+            }
+        }
+    }
+    .investment-plans {
+        padding: 30px 0;
+        .spiral-container {
+            padding: 20px 0;
+            .dotted-circles {
+                width: 90vw;
+                height: 90vw;
+                top: 40px;
+            }
             .center-circle {
-                top: 270% !important;
+                width: 150px;
+                height: 150px;
+                top: 250px;
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            .orbit1,
+            .orbit2,
+            .orbit3 {
+                width: 90vw;
+                height: 90vw;
+                top: 30px;
+                .orbiting-ball {
+                    width: 45px;
+                    height: 45px;
+                    span {
+                        font-size: 9px;
+                    }
+                    h5 {
+                        font-size: 12px;
+                        line-height: 12px;
+                    }
+                }
+            }
+            /* Optional: reduce orbit radii in keyframes for smaller screens */
+            @keyframes orbit1 {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes orbit2 {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes orbit3 {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
             }
         }
-        
-        @media (max-width: 1366px) {
-            .center-circle {
-                top: 250% !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .orbit1,
+    .orbit2,
+    .orbit3 {
+        top: 10vw;
+        width: 90vw;
+        height: 90vw;
+    }
+    .center-circle {
+        width: 30vw;
+        height: 30vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .spiral-container {
+        padding: 8vw 0;
+        .center-circle {
+            width: 30vw;
+            height: 30vw;
+        }
+        .orbit1,
+        .orbit2,
+        .orbit3 {
+            width: 90vw;
+            height: 90vw;
+            top: 10vw;
+            .orbiting-ball {
+                width: 10vw;
+                height: 10vw;
             }
         }
+    }
+}
+
+@media (max-width: 1280px) {
+    .center-circle {
+        top: 270% !important;
+    }
+}
+
+@media (max-width: 1366px) {
+    .center-circle {
+        top: 250% !important;
+    }
+}
